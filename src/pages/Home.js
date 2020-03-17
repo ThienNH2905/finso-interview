@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
-import MenuBar from '../components/Nav';
 import NewsList from '../components/NewsList';
 import NewsFilter from '../components/NewsFilter';
 import Profile from '../components/Profile';
 import { 
     TabContent, TabPane, Nav, 
     NavItem, NavLink, 
-    Container, Row 
+    Container, Row, Col 
 } from 'reactstrap';
 
 class Home extends Component{
@@ -18,15 +17,24 @@ class Home extends Component{
         }
         this.toggle = this.toggle.bind(this);
     }
+
+    componentWillMount() {
+        if(window.location.hash) {
+            let tab = window.location.hash.replace("#", '');
+            this.setState({active_tab: tab});
+        }
+        
+    }
     
     toggle(tab)  {
         if(this.state.active_tab !== tab) this.setState({active_tab: tab});
+        window.location.hash = tab;
     }
     render(){
         return(
             <Container>
                 <Row>
-                    <MenuBar />
+                    <Col><h1>Finso's News!</h1></Col>
                 </Row>
                 <Row>
                     <Nav pills className="w-100">

@@ -29,7 +29,6 @@ class NewsFilter extends Component{
         }
         })
         .then((response) => {
-            console.log(response.data.articles);
             this.setNewsList(response.data.articles);
         })
         .catch((error) => {
