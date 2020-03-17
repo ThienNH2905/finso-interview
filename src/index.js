@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Home from './pages/Home';
+import MenuBar from './router';
 import * as serviceWorker from './serviceWorker';
+import axios from 'axios';
 
-ReactDOM.render(<Home />, document.getElementById('root'));
+axios.defaults.headers.common['X-Api-Key'] = 'edd3503b0cd74852a25d3d638183b3bb';
+
+ReactDOM.render(<MenuBar />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

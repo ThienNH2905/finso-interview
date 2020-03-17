@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
-import NewsList from '../components/News_list';
+import MenuBar from '../components/Nav';
+import NewsList from '../components/NewsList';
+import NewsFilter from '../components/NewsFilter';
+import Profile from '../components/Profile';
 import { 
     TabContent, TabPane, Nav, 
-    NavItem, NavLink, Card,
-    Button, CardTitle, CardText, 
-    Container, Row, Col 
+    NavItem, NavLink, 
+    Container, Row 
 } from 'reactstrap';
 
 class Home extends Component{
@@ -24,9 +26,7 @@ class Home extends Component{
         return(
             <Container>
                 <Row>
-                    <Col className="d-flex justify-content-center">
-                        <h1>Finso's News!</h1>
-                    </Col>
+                    <MenuBar />
                 </Row>
                 <Row>
                     <Nav pills className="w-100">
@@ -35,7 +35,7 @@ class Home extends Component{
                                 className={classnames({ active: this.state.active_tab === '1' })}
                                 onClick={() => { this.toggle('1'); }}
                             >
-                                News
+                                Top Headline
                             </NavLink>
                         </NavItem>
                         <NavItem className="flex-grow-1">
@@ -60,33 +60,10 @@ class Home extends Component{
                             <NewsList/>
                         </TabPane>
                         <TabPane tabId="2">
-                            <Row>
-                                <Col sm="6">
-                                    <Card body>
-                                        <CardTitle>Special Title Treatment</CardTitle>
-                                        <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                                        <Button>Go somewhere</Button>
-                                    </Card>
-                                </Col>
-                                <Col sm="6">
-                                    <Card body>
-                                        <CardTitle>Special Title Treatment</CardTitle>
-                                        <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                                        <Button>Go somewhere</Button>
-                                    </Card>
-                                </Col>
-                            </Row>
+                            <NewsFilter />
                         </TabPane>
                         <TabPane tabId="3">
-                            <Row>
-                                <Col sm="6">
-                                    <Card body>
-                                        <CardTitle>Special Title Treatment</CardTitle>
-                                        <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                                        <Button>Go somewhere</Button>
-                                    </Card>
-                                </Col>
-                            </Row>
+                            <Profile />
                         </TabPane>
                     </TabContent>
                 </Row>
