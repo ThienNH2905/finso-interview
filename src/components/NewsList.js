@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Row } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 
 import NewsItem from "./NewsItem"
 
@@ -49,6 +49,12 @@ class NewsList extends Component{
                     <NewsItem key={index} data={val}/>
                 )
             })
+        } else {
+            return(
+                <Col className="mt-3">
+                    <h4>Loading...</h4>
+                </Col>
+            );
         }
         
         return data;
@@ -56,7 +62,7 @@ class NewsList extends Component{
 
     render(){
         return(
-            <Row>
+            <Row className="mt-2">
                 {this.showData()}
             </Row>
             

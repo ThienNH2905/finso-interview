@@ -30,7 +30,7 @@ class Profile extends Component{
         let formData = new FormData(event.target);
         let user_date = JSON.stringify(Object.fromEntries(formData))
         localStorage.setItem("user", user_date);
-        this.setState({submit_msg: "ahuhuuu"})
+        this.setState({submit_msg: "You have successfully saved the information!"})
     }
 
     userFromLocalStorage() {
@@ -50,26 +50,26 @@ class Profile extends Component{
         return(
             <Row>
                 <Col>
-                    <Form onSubmit={this.handleSubmit}>
+                    <Form onSubmit={this.handleSubmit} className="mt-4">
                         <FormGroup>
                             <Label for="userName">Username</Label>
-                            <Input type="text" name="userName" defaultValue={this.getValue("userName")} id="userName" placeholder="Username" />
+                            <Input type="text" name="userName" defaultValue={this.getValue("userName")} id="userName" placeholder="Username" required />
                         </FormGroup>
 
                         <FormGroup>
                             <Label for="fullName">Full Name</Label>
-                            <Input type="text" name="fullName" defaultValue={this.getValue("fullName")} id="fullName" placeholder="Full Name" />
+                            <Input type="text" name="fullName" defaultValue={this.getValue("fullName")} id="fullName" placeholder="Full Name" required />
                         </FormGroup>
 
                         <FormGroup>
                             <Label for="email">Email</Label>
-                            <Input type="email" name="email" id="email" defaultValue={this.getValue("email")} placeholder="Email" />
+                            <Input type="email" name="email" id="email" defaultValue={this.getValue("email")} placeholder="Email" required />
                         </FormGroup>
 
-                        <Button type="submit">Submit</Button>
+                        <Button type="submit" color="success" className="px-4">Submit</Button>
 
                         { this.state.submit_msg &&
-                            <Alert color="success">
+                            <Alert color="success" className="mt-4">
                                 {this.state.submit_msg}
                             </Alert>
                         }

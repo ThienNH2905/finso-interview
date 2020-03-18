@@ -34,46 +34,48 @@ class Home extends Component{
         return(
             <Container>
                 <Row>
-                    <Col><h1>Finso's News!</h1></Col>
+                    <Col className="py-4 text-center"><h1>Finso's News!</h1></Col>
                 </Row>
                 <Row>
-                    <Nav pills className="w-100">
-                        <NavItem className="flex-grow-1">
-                            <NavLink
-                                className={classnames({ active: this.state.active_tab === '1' })}
-                                onClick={() => { this.toggle('1'); }}
-                            >
-                                Top Headline
-                            </NavLink>
-                        </NavItem>
-                        <NavItem className="flex-grow-1">
-                            <NavLink
-                                className={classnames({ active: this.state.active_tab === '2' })}
-                                onClick={() => { this.toggle('2'); }}
-                            >
-                                News by categories
-                            </NavLink>
-                        </NavItem>
-                        <NavItem className="flex-grow-1">
-                            <NavLink
-                                className={classnames({ active: this.state.active_tab === '3' })}
-                                onClick={() => { this.toggle('3'); }}
-                            >
-                                Profile
-                            </NavLink>
-                        </NavItem>
-                    </Nav>
-                    <TabContent className="w-100" activeTab={this.state.active_tab}>
-                        <TabPane tabId="1">
-                            <NewsList/>
-                        </TabPane>
-                        <TabPane tabId="2">
-                            <NewsFilter />
-                        </TabPane>
-                        <TabPane tabId="3">
-                            <Profile />
-                        </TabPane>
-                    </TabContent>
+                    <Col>
+                        <Nav pills className="ct-nav-pills">
+                            <NavItem className="flex-grow-1 text-center">
+                                <NavLink
+                                    className={classnames({ active: this.state.active_tab === '1' })}
+                                    onClick={() => { this.toggle('1'); }}
+                                >
+                                    Top Headline
+                                </NavLink>
+                            </NavItem>
+                            <NavItem className="flex-grow-1 text-center">
+                                <NavLink
+                                    className={classnames({ active: this.state.active_tab === '2' })}
+                                    onClick={() => { this.toggle('2'); }}
+                                >
+                                    News by categories
+                                </NavLink>
+                            </NavItem>
+                            <NavItem className="flex-grow-1 text-center">
+                                <NavLink
+                                    className={classnames({ active: this.state.active_tab === '3' })}
+                                    onClick={() => { this.toggle('3'); }}
+                                >
+                                    Profile
+                                </NavLink>
+                            </NavItem>
+                        </Nav>
+                        <TabContent className="w-100" activeTab={this.state.active_tab}>
+                            <TabPane tabId="1">
+                                <NewsList/>
+                            </TabPane>
+                            <TabPane tabId="2">
+                                <NewsFilter />
+                            </TabPane>
+                            <TabPane tabId="3">
+                                <Profile />
+                            </TabPane>
+                        </TabContent>
+                    </Col>
                 </Row>
             </Container>
         )

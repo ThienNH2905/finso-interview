@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Card, CardImg, CardText, CardBody,
+    Card, CardText, CardBody,
     CardTitle, Col 
 } from 'reactstrap';
 
@@ -9,12 +9,18 @@ import ModalDetail from "../components/Detail";
 const NewsItem = (props) => {
     const {data} = props;
     return(
-        <Col sm="12" lg="4">
-            <Card>
-                <CardImg top width="100%" src={data.urlToImage} alt="Card image cap" />
-                <CardBody>
-                    <CardTitle className="font-weight-bold">{data.title}</CardTitle>
-                    <CardText>{data.description}</CardText>
+        <Col sm="12" lg="4" className="my-3">
+            <Card className="h-100">
+                <div className="thumb-wrap">
+                    <img src={data.urlToImage} alt={data.title} />
+                </div>
+                <CardBody className="d-flex flex-column justify-content-between">
+                    <div>
+                        <CardTitle className="font-weight-bold">
+                            {data.title}
+                        </CardTitle>
+                        <CardText>{data.description}</CardText>
+                    </div>
                     <ModalDetail data={data}/>
                 </CardBody>
             </Card>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Row } from 'reactstrap';
+import { Row, Col, Input } from 'reactstrap';
 
 import NewsItem from "./NewsItem"
 
@@ -50,7 +50,11 @@ class NewsFilter extends Component{
             })
             return data;
         } else {
-            return(<p>loading...</p>);
+            return(
+                <Col className="mt-3">
+                    <h4>Loading...</h4>
+                </Col>
+            );
         }
         
         
@@ -66,12 +70,14 @@ class NewsFilter extends Component{
         return(
             <div>
                 <Row>
-                    <select onChange={ this.handleChange }>
-                        <option value='bitcoin'>Bitcoin</option>
-                        <option value='apple'>Apple</option>
-                        <option value='earthquake'>Earthquake</option>
-                        <option value='animal'>Animal</option>
-                    </select>
+                    <Col>
+                        <Input type="select" name="select" onChange={ this.handleChange } className="w-auto mt-4">
+                            <option value='bitcoin'>Bitcoin</option>
+                            <option value='apple'>Apple</option>
+                            <option value='earthquake'>Earthquake</option>
+                            <option value='animal'>Animal</option>
+                        </Input>
+                    </Col>
                 </Row>
                 <Row>
                     

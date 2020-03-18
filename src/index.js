@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import MenuBar from './router';
 import * as serviceWorker from './serviceWorker';
 import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './assets/style.scss';
+
 
 axios.defaults.headers.common['X-Api-Key'] = 'edd3503b0cd74852a25d3d638183b3bb';
 

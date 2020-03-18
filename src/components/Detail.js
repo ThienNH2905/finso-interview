@@ -8,7 +8,7 @@ const ModalDetail = (props) => {
 
   return (
     <div>
-      <Button color="danger" block onClick={toggle}>Detail</Button>
+      <Button color="info" block onClick={toggle} className="mt-3">Detail</Button>
       <Modal isOpen={modal} toggle={toggle} size="lg">
       <ModalHeader toggle={toggle}></ModalHeader>
         <ModalBody>
